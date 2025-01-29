@@ -1,0 +1,30 @@
+top level organization,shorthand label,template
+relative size/weight,biggest,choose the biggest of the following objects
+relative size/weight,heaviest,choose the heaviest of the following objects
+relative size/weight,fits,Can you put a(n) object in [container]? Answer yes or no.
+relative size/weight,interact,Is it easier to interact with object in x state or y state? Answer x state or y state.
+placement in function category,can_do,Tell me which of these can [complete required function]
+placement in function category,can_do_size,Tell me which of these can [complete required function] if restricting by [relative size]
+placement in function category,can_do_shape,Tell me which of these can [complete required function] if restricting by [shape]
+placement in function category,can_do_contain,Tell me which of these can [complete required function] if restricting by if it can fit in [container]
+placement in function category,can_do_char,Tell me which of these can [complete required function] if restricting by [secondary physical characteristic]
+placement in function category,can_do_goal,Tell me which of these can best [complete required function] given [goal]
+placement in function category,difference,Choose the differences between [objects in same function category] from the following list.
+placement in function category,diff_criteria,Choose the differences between [objects in same function category] in terms of [differential criteria] from the following list.
+is-a/hypernyms,use_as,Can you use [object] as a [different object]? Answer yes or no.
+is-a/hypernyms,is_a,"Would you consider [object] to fall into the category of [different, more general object]? Answer yes or no."
+is-a/hypernyms,types_of,Choose the [object that is a hypernym] from the list
+objects in risky situations,injury,Which of these objects would cause an injury if [scenario]?
+objects in risky situations,danger,Which of these objects are dangerous if [scenario]?
+objects in risky situations,damage_to_obj,Tell him which of these items would cause the most damage to [another object]
+required equipment,explain_use,"The following are two different steps for how to use an [object]. Which needs to happen first, step A or step B? Answer either step A or step B"
+required equipment,equip_used,Select the equipment used to do [disaster subtask]
+required equipment,equip_in_task,What role does [object] play in [disaster subtask]
+instruction following,instruct,identify which passage is a [instruction type] instruction: [list of basic instructions]
+instruction following,followup,Choose a clarifying follow up question given the prompt: [basic instruction]
+primary and secondary object facts,obj_loc,Select the typical places where [object] is located
+primary and secondary object facts,objs_in_loc,Select the objects typically found in [location]
+primary and secondary object facts,secondary_use,Which of the following can [break a window/get tied in knots/fit through a crack/other secondary uses]
+disaster specific knowledge,prepare,Choose from the following some appropriate ways to prepare for [disaster]
+disaster specific knowledge,warn,Choose from the following the potential warning signs for [disaster]
+disaster specific knowledge,info,case by case conversion
