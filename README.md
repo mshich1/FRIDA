@@ -26,7 +26,7 @@ The name refers to the ablation model in question. em means exact match, sm mean
 *Answer: C) breaks large pieces down for easier transport offsite"*
 
 9. The linguistic experts converts this into a json object for easier parsing.
-10. The linguist creates 5 seed instructions from each template, following the instructions for filling in the template blanks and generating the answers. All templates can be seen in **PUT CSV HERE** and all instructions for filling in these templates can be seen in **PUT CSV HERE**
+10. The linguist creates 5 seed instructions from each template, following the instructions for filling in the template blanks and generating the answers. All templates can be seen in `templates.csv` and all instructions for filling in these templates can be seen in `task_descriptions.csv`.
 
 ### Part 2: Generating the seed questions
 1. Gemini is sent a system instruction to multiple choice generate instructions about object affordances and earthquake search and rescue and return them as a specifically formatted json object.
