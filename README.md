@@ -1,4 +1,4 @@
-# FRIDA to the Rescue! Analyzing Synthetic Data Effectiveness in Common Sense Reasoning for Disaster Response
+# FRIDA to the Rescue! Analyzing Synthetic Data Effectiveness in Object-Based Common Sense Reasoning for Disaster Response
 
 ## Directory
 **Assets:** all the charts made for the paper
