@@ -4,7 +4,7 @@ import re
 
 with open("../mistral_results/sem_mis.txt") as input:
     scores = [l for l in input]
-    ems = {"overall":[], "rel_size":[],"can_do_it": [], "is_a_dif":[],"risky":[],\
+    sems = {"overall":[], "rel_size":[],"can_do_it": [], "is_a_dif":[],"risky":[],\
            "equip":[], "obj_facts":[], "quake":[], "instr": []}
     for p in scores:
         cat_nums = re.match("([a-zA-Z_]+) average sem score: (0\.\d+|1.0)", p)
@@ -12,23 +12,23 @@ with open("../mistral_results/sem_mis.txt") as input:
             continue
         cat = cat_nums.group(1)
         num = float(cat_nums.group(2))
-        ems[cat].append(num)
+        sems[cat].append(num)
     
     x_axis_labels = ["relative size","object function","differences","objects causing harm",\
                      "aspecialized equipment","non-functional object facts","earthquake","instruction understanding",\
-                     "MaFRIDA 8B", "Ministral 8B instruct"]
+                     "M-FRIDA 8B", "Ministral 8B instruct"]
     y_axis_labels = ["relative size templates", "object function templates", "differences templates", "objects causing harm templates",\
                      "specialized equipment templates", "non-functional object facts templates", "earthquake templates", "instruction understanding templates", "all evaluation data"]
 
-    results = np.array([np.array(ems["rel_size"]),
-                       np.array(ems["can_do_it"]),
-                       np.array(ems["is_a_dif"]),
-                       np.array(ems["risky"]),
-                       np.array(ems["equip"]),
-                       np.array(ems["obj_facts"]),
-                       np.array(ems["quake"]),
-                       np.array(ems["instr"]),
-                       np.array(ems["overall"])])
+    results = np.array([np.array(sems["rel_size"]),
+                       np.array(sems["can_do_it"]),
+                       np.array(sems["is_a_dif"]),
+                       np.array(sems["risky"]),
+                       np.array(sems["equip"]),
+                       np.array(sems["obj_facts"]),
+                       np.array(sems["quake"]),
+                       np.array(sems["instr"]),
+                       np.array(sems["overall"])])
     
     fig, ax = plt.subplots()
     im = ax.imshow(results)
@@ -47,7 +47,7 @@ with open("../mistral_results/sem_mis.txt") as input:
             text = ax.text(j, i, f'{results[i, j]:.2f}',
                         ha="center", va="center", color="w")
 
-    ax.set_title("Embedding Vector Cosine Similarity on \ndata subsets, Mistral 8B Instruct")
+    ax.set_title("Embedding Vector Cosine Similarity on \ndata subsets, Ministral 8B Instruct")
     fig.tight_layout()
     plt.show()
 
