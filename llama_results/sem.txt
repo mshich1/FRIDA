@@ -298,3 +298,13 @@ obj_facts average sem score: 0.6977975241995106
 quake average sem score: 0.6198589444160462
 instr average sem score: 0.9210658810640636
 
+***MODEL IS ../llama_results/llama.txt***
+overall average sem score: 0.9087902372082074
+rel_size average sem score: 0.8208221197128296
+can_do_it average sem score: 0.9819299607049852
+is_a_dif average sem score: 0.9028029523112557
+risky average sem score: 0.9015531291564306
+equip average sem score: 0.9281677057345709
+obj_facts average sem score: 0.9148132254679998
+quake average sem score: 0.9949791669845581
+instr average sem score: 0.8833527784598502

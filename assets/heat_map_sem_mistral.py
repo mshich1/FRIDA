@@ -14,8 +14,8 @@ with open("../mistral_results/sem_mis.txt") as input:
         num = float(cat_nums.group(2))
         sems[cat].append(num)
     
-    x_axis_labels = ["relative size","object function","differences","objects causing harm",\
-                     "aspecialized equipment","non-functional object facts","earthquake","instruction understanding",\
+    x_axis_labels = ["MaFRIDA 8B: relative size","MaFRIDA 8B: object function","MaFRIDA 8B: differences","MaFRIDA 8B: objects causing harm",\
+                     "MaFRIDA 8B: specialized equipment","MaFRIDA 8B: non-functional object facts","MaFRIDA 8B: earthquakes","MaFRIDA 8B: instruction understanding",\
                      "M-FRIDA 8B", "Ministral 8B instruct"]
     y_axis_labels = ["relative size templates", "object function templates", "differences templates", "objects causing harm templates",\
                      "specialized equipment templates", "non-functional object facts templates", "earthquake templates", "instruction understanding templates", "all evaluation data"]
@@ -32,7 +32,7 @@ with open("../mistral_results/sem_mis.txt") as input:
     
     fig, ax = plt.subplots()
     im = ax.imshow(results)
-    plt.rcParams.update({'font.size': 12})
+    plt.rcParams.update({'font.size': 10})
     # Show all ticks and label them with the respective list entries
     ax.set_xticks(np.arange(len(x_axis_labels)), labels=x_axis_labels)
     ax.set_yticks(np.arange(len(y_axis_labels)), labels=y_axis_labels)
@@ -47,7 +47,7 @@ with open("../mistral_results/sem_mis.txt") as input:
             text = ax.text(j, i, f'{results[i, j]:.2f}',
                         ha="center", va="center", color="w")
 
-    ax.set_title("Embedding Vector Cosine Similarity on \ndata subsets, Ministral 8B Instruct")
+    ax.set_title("SemScore by subsets, M-FRIDA 8B Suite")
     fig.tight_layout()
     plt.show()
 
