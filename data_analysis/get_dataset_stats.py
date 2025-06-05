@@ -1,5 +1,6 @@
 import json
-# import mathplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import numpy as np
 # This script gets the max rouge score for each instruction and the instruction length
 # It then generates averages over template dataset, category dataset, and overall dataset
@@ -53,9 +54,9 @@ def put_in_cat(filename, i, c, t, r):
         print("Freakout")
 
 with open("dataset_stats.txt","w") as stat_out:
+    overall_len = []
+    overall_rouge = []
     for f in files:
-        overall_len = []
-        overall_rouge = []
         with open(f"../gemini_results/{f}.json") as data_in:
             all_data = json.load(data_in)
             instr_len = []
@@ -72,7 +73,7 @@ with open("dataset_stats.txt","w") as stat_out:
                 ans_len.append(ch_len)
                 total_len.append(i_len+ch_len)
                 overall_len.append(i_len+ch_len)
-                r_score = next(iter(q["most_similar_instructions"].values()))#thank you chatGPT for this line specifically
+                r_score = next(iter(q["most_similar_instructions"].values()))# thank you chatGPT for this line specifically
                 rouge_scores.append(r_score)
                 overall_rouge.append(r_score)
                 put_in_cat(f,i_len, ch_len, i_len+ch_len, r_score) 
@@ -113,8 +114,32 @@ with open("dataset_stats.txt","w") as stat_out:
     stat_out.write(f'overall median instruction length: {np.median(np_ol)}\n')
     stat_out.write(f'overall avg ROUGE score: {np_or.mean()}\n')
     stat_out.write(f'overall median ROUGE score: {np.median(np_or)}')
+    stat_out.write(f'overall range in instruction lengths: {np_ol.min()} - {np_ol.max()}\n')
+    stat_out.write(f'overall range in ROUGE score: {np_or.min()} - {np_or.max()}\n')
 
+fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(4, 7))
 
+axes[0].hist(np_ol, bins=30, color='skyblue', edgecolor='black', range=(15,80))
+axes[0].set_title('Instruction Length Distribution')
+axes[0].set_xlabel('Instruction Length (words)')
+axes[0].axvline(np_ol.mean(), color='k', linestyle='dashed', linewidth=2)
+axes[0].xaxis.set_major_locator(MaxNLocator(nbins=20))
+
+axes[1].hist(np_or, bins=30, color='lightgreen', edgecolor='black', range=(0.25,0.97))
+axes[1].set_title('Instructions\' Max ROUGE Score Distribution')
+axes[1].set_xlabel('ROUGE score')
+axes[1].axvline(np_or.mean(), color='k', linestyle='dashed', linewidth=2)
+axes[1].xaxis.set_major_locator(MaxNLocator(nbins=20))
+ 
+# Adding labels and title
+# for ax in axes:
+#     ax.set_ylabel('Frequency')
+
+# Adjusting layout for better spacing
+plt.tight_layout()
+
+# Display the figure
+plt.show()
 
 
 
