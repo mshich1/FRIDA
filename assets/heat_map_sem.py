@@ -76,22 +76,19 @@ with open("../llama_results/sem_lg.txt") as l_in:
     ax.set_yticks(np.arange(len(y_axis_labels)), labels=y_axis_labels)
 
         # Rotate the tick labels and set their alignment.
-        plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-                rotation_mode="anchor")
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+            rotation_mode="anchor")
 
-        # Loop over data dimensions and create text annotations.
-        for i in range(len(y_axis_labels)):
-            for j in range(len(x_axis_labels)):
-                text = ax.text(j, i, f'{results[i, j]:.2f}',
-                            ha="center", va="center", color="w")
+    # Loop over data dimensions and create text annotations.
+    for i in range(len(y_axis_labels)):
+        for j in range(len(x_axis_labels)):
+            text = ax.text(j, i, f'{results[i, j]:.2f}',
+                        ha="center", va="center", color="w")
 
-<<<<<<< HEAD
-        ax.set_title(f"SemScore on data subsets, {lab[2]}")
-        fig.tight_layout()
-        plt.show()
-=======
+    ax.set_title(f"SemScore on data subsets, {lab[2]}")
+    fig.tight_layout()
+    plt.show()
     ax.set_title("SemScore by subsets, FRIDA 8B suite")
     fig.tight_layout()
     plt.show()
->>>>>>> 34beec01925705115f1db74a3b5fe5216eda1a50
 

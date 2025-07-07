@@ -52,11 +52,8 @@ with open("../mistral_results/sem_mis.txt") as input:
             text = ax.text(j, i, f'{results[i, j]:.2f}',
                         ha="center", va="center", color="w")
 
-<<<<<<< HEAD
     ax.set_title("SemScore Accuracy on evaluation data subsets")
-=======
     ax.set_title("SemScore by subsets, M-FRIDA 8B Suite")
->>>>>>> 34beec01925705115f1db74a3b5fe5216eda1a50
     fig.tight_layout()
     plt.show()
 
