@@ -14,11 +14,11 @@ with open("../mistral_results/sem_mis.txt") as input:
         num = float(cat_nums.group(2))
         ems[cat].append(num)
     
-    x_axis_labels = ["relative size","object function","differences","objects causing harm",\
-                     "aspecialized equipment","non-functional object facts","earthquake","instruction understanding",\
-                     "MaFRIDA 8B", "Ministral 8B instruct"]
-    y_axis_labels = ["relative size templates", "object function templates", "differences templates", "objects causing harm templates",\
-                     "specialized equipment templates", "non-functional object facts templates", "earthquake templates", "instruction understanding templates", "all evaluation data"]
+    x_axis_labels = ["aFRIDA: relative size model","aFRIDA: object function model","aFRIDA: differences model","aFRIDA: objects causing harm model",\
+                     "aFRIDA: specialized equipment model","aFRIDA: non-functional object facts model","aFRIDA: earthquake model","aFRIDA: instruction understanding model",\
+                     "FRIDA", "Ministral 8B instruct"]
+    y_axis_labels = ["relative size eval data", "object function eval data", "differences eval data", "objects causing harm eval data",\
+                     "specialized equipment eval data", "non-functional object facts eval data", "earthquake eval data", "instruction understanding eval data", "all evaluation data"]
 
     results = np.array([np.array(ems["rel_size"]),
                        np.array(ems["can_do_it"]),
@@ -47,7 +47,7 @@ with open("../mistral_results/sem_mis.txt") as input:
             text = ax.text(j, i, f'{results[i, j]:.2f}',
                         ha="center", va="center", color="w")
 
-    ax.set_title("Embedding Vector Cosine Similarity on \ndata subsets, Mistral 8B Instruct")
+    ax.set_title("SemScore Accuracy on evaluation data subsets")
     fig.tight_layout()
     plt.show()
 
