@@ -3,6 +3,8 @@
 ## Directory
 **Assets:** all the charts made for the paper
 
+**Data Analysis** code for analysing synthetic data
+
 **Gemini:** code for generating synthetic data with gemini, as well as querying its API for evaluation purposes
 
 **Gemini_Results:** The resulting synthetic datasets and subsets. It also includes the baseline results for the gemini and llama 8b models
@@ -16,6 +18,9 @@ The name refers to the ablation model in question. em means exact match, sm mean
 
 **Mistral_Results:** All results for the Mistral based FRIDA model. 
 The name refers to the ablation model in question. em means exact match, sem means semscore.
+
+**Seed_Sentences** The resulting sentences from the templates used for few-shot prompting Gemini
+
 
 ## Walk through of the pipeline
 ### Part 1: Creating the seed sentences
